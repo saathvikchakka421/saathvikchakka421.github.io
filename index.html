@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saathvik Chakka | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: #333; background: #f9f9f9; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 4rem; z-index: 1000;
+    }
+    nav .logo { font-weight: 700; font-size: 1.2rem; color: #000; }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul li a {
+      text-decoration: none; color: #333; font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover { color: #007BFF; }
+    .resume-btn {
+      background: #007BFF; color: white; padding: 0.5rem 1rem;
+      border-radius: 5px; text-decoration: none; font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .resume-btn:hover { background: #0056b3; }
+
+    /* Sidebar */
+    .social-sidebar {
+      position: fixed; left: 2rem; top: 40%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .social-sidebar a {
+      color: #333; font-size: 1.3rem; background: #fff; border-radius: 50%;
+      padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .social-sidebar a:hover { color: #007BFF; transform: translateY(-3px); }
+
+    /* Hero Section */
+    section { padding: 100px 15%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    #home { background: #fff; text-align: center; }
+    #home h1 { font-size: 3rem; font-weight: 700; color: #000; margin-bottom: 1rem; }
+    #home p { font-size: 1.2rem; color: #555; margin-bottom: 2rem; }
+    #home .btn {
+      background: #ffb703; padding: 0.8rem 2rem; color: white; border-radius: 6px;
+      font-weight: 600; text-decoration: none; transition: all 0.3s ease;
+    }
+    #home .btn:hover { background: #fb8500; transform: translateY(-2px); }
+
+    /* About */
+    #about { background: #f9f9f9; display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 3rem; }
+    .about-img {
+      flex: 1 1 300px; display: flex; justify-content: center;
+    }
+    .about-img img {
+      width: 300px; height: 300px; object-fit: cover; border-radius: 50%;
+      border: 4px solid #000; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .about-img img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    }
+    .about-text {
+      flex: 2 1 500px; text-align: justify; font-size: 1rem; color: #555;
+    }
+    .section-title { text-align: center; font-weight: 700; font-size: 2rem; margin-bottom: 2rem; width: 100%; }
+
+    /* Projects */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;
+    }
+    .project-card {
+      background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 10px; padding: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease; text-align: left;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .project-card h3 { color: #007BFF; margin-bottom: 0.5rem; }
+    .project-card p { color: #555; }
+
+    /* Experience */
+    .exp-card { background: linear-gradient(135deg, #e0f7fa, #ffffff); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 2rem auto; max-width: 700px; }
+    .exp-card ul { margin-left: 20px; color: #555; }
+
+    /* Contact */
+    form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto; }
+    input, textarea {
+      padding: 1rem; border-radius: 8px; border: 1px solid #ddd; outline: none;
+      font-size: 1rem; transition: 0.3s ease;
+    }
+    input:focus, textarea:focus { border-color: #007BFF; }
+    button { background: #007BFF; color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s ease; }
+    button:hover { background: #0056b3; }
+
+    footer {
+      text-align: center; padding: 2rem; background: #fff; color: #333;
+      border-top: 1px solid #eee; font-size: 0.9rem;
+    }
+
+    @media(max-width: 900px){
+      #about { flex-direction: column; text-align: center; }
+      .about-text { text-align: center; }
+    }
+      .about-text { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Saathvik Chakka</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="./Sathvik_Resume.pdf" class="resume-btn" download="Saathvik_Chakka_Resume">Download Resume</a>
+  </nav>
+
+  <div class="social-sidebar">
+    <a href="https://linkedin.com/in/saathvik421" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/saathvikchakka421" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="mailto:saathvikchakka421@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Saathvik,%20I%20wanted%20to%20connect%20regarding..." target="_blank"><i class="fas fa-envelope"></i></a>
+    <a href="tel:+919949375405"><i class="fas fa-phone"></i></a>
+  </div>
+
+  <section id="home">
+    <h1>Hey, I'm Saathvik Chakka</h1>
+    <p>A Computer Science student passionate about software development, data analytics, and innovation.</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-img">
+      <img src="photo.png" alt="Saathvik Chakka Profile Photo">
+    </div>
+    <div class="about-text">
+      My fascination with technology began in my early years when I realized that behind every digital interaction, there’s a logical framework making it possible. That curiosity evolved into a deep passion for Computer Science, a field that beautifully merges logic, creativity, and innovation. I was drawn to the process of creating meaningful solutions from abstract ideas, where every line of code contributes to building something impactful.
+      <br><br>
+      Over time, I’ve developed a strong foundation in programming, data analytics, and software design. My projects have allowed me to explore diverse domains, from developing web applications to creating analytical dashboards and predictive models. These experiences taught me the importance of clean, efficient code and data-driven decision-making.
+      <br><br>
+      I find joy in problem-solving and the pursuit of efficiency. Whether it’s optimizing algorithms, designing intuitive interfaces, or crafting elegant data visualizations, I approach each challenge as an opportunity to learn and grow. Collaboration and communication are integral to my process, I believe the best innovations emerge when ideas are shared openly and refined collectively.
+      <br><br>
+      Beyond coding, I’m deeply passionate about understanding the intersection between data and human behavior. I’m fascinated by how technology can simplify everyday life and empower people through intelligent systems. My vision is to build tools that not only perform but inspire, software that feels personal, insightful, and future-ready. As I continue my journey in computer science, I aim to leverage my analytical mindset and creative curiosity to make technology more accessible, purposeful, and impactful for everyone.
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <a href="https://github.com/saathvikchakka421" target="_blank" class="project-card">
+        <h3>Smart Attendance Management System</h3>
+        <p>Flask-based app for role-based attendance tracking and reporting using SQLite.</p>
+      </a>
+      <a href="https://github.com/saathvikchakka421" target="_blank" class="project-card">
+        <h3>Movie Recommendation System</h3>
+        <p>Python + Scikit-learn collaborative filtering to suggest movies based on preferences.</p>
+      </a>
+      <a href="#home" class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A personal website showcasing my projects, skills, and experience with modern design.</p>
+      </a>
+      <a href="#home" class="project-card">
+        <h3>Data Visualization Dashboard</h3>
+        <p>Interactive Power BI dashboard visualizing key sales and performance insights.</p>
+      </a>
+      <a href="#home" class="project-card">
+        <h3>Task Management System</h3>
+        <p>A full-stack web application for organizing and tracking daily tasks efficiently.</p>
+      </a>
+      <a href="#home" class="project-card">
+        <h3>Weather Forecast App</h3>
+        <p>Dynamic web app using APIs to display live weather updates and forecasts for cities.</p>
+      </a>
+      <a href="#home" class="project-card">
+        <h3>AI Chatbot Assistant</h3>
+        <p>Interactive AI chatbot built with Python to simulate natural conversations for support queries.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="exp-card">
+      <h3>Data Analyst Intern – DiviMaxim Technologies</h3>
+      <p><em>May 2025 – Aug 2025 | Hyderabad, India</em></p>
+      <ul>
+        <li>Analyzed 15K+ sales records using Python and Excel to identify key business trends.</li>
+        <li>Created interactive Power BI dashboards for KPI monitoring.</li>
+        <li>Automated reports, reducing manual work by 40%.</li>
+        <li>Developed Python scripts to clean, preprocess, and validate large data sets.</li>
+        <li>Collaborated with the analytics team to enhance visualization dashboards for executives.</li>
+        <li>Contributed to improving the accuracy of forecasting models by 20%.</li>
+        <li>Presented weekly insights to management, influencing decision-making processes.</li>
+        <li>Documented analytics workflows to improve team knowledge sharing and efficiency.</li>
+        <li>Optimized SQL queries for performance and data extraction.</li>
+        <li>Integrated Excel automation macros for report generation, cutting analysis time by half.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form action="mailto:saathvikchakka421@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 Saathvik Chakka
+  </footer>
+</body>
+</html>
